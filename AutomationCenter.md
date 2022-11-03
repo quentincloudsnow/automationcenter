@@ -1,179 +1,151 @@
-# Document Intelligence
+# Automation Center
 
 ## Introduction
 
-Document Intelligence is a machine learning (ML) solution that provides assistance to quickly and accurately extract information from documents to the Now Platform® enabling you to quickly process highly variable documents that change over time.
+ServiceNow® Automation Center application can be used to govern your end-to-end multi-vendor automation life cycles from one place. By using real-time dashboards, you can manage and measure the health of the automation and prevent automation failures across multiple vendors​.
 
-Many organizations today use simple optical character recognition (OCR) solutions to extract data from documents that requires significant manual configuration, and also often requires manual changes as the documents evolve. Document Intelligence extends beyond the simple OCR by using ML to identify, understand, and extract text and data from documents. This enables you to accurately automate document processing and accurately extract information from documents, even when the documents have varied text, data, and templates. 
+Key features:
 
-We added this capability on the platform so the data extraction from documents can easily be done but also for our customer to be able to do this from within their own Workflows on the platform. A lot of processes still involve digital documents, this can be a useful capability as organisation are progressing on their hyperautomation journey.
+- Discover, prioritize, and manage automation requests from different sources through the full life cycle in Automation Center workspace.
+- Oversee and optimize automation performance versus business goals across multiple vendors.
+- Monitor and manage the health of the automation and prevent automation failures across multiple vendors.
+
 
 ## Goal
 
-In this exercise we are going over a use case of a fictitious organization called **ACME**. ACME is growing very fast and hiring a lot of new employees. The HR team has submitted an Automation request in Automation Center to automate the Onboarding process of new hire. ACME's Automation COE has agreed to automate that process and use Document Intelligence to  add some automation. One step of this process is called **Setup Direct Deposit**. We are going to focus for this exercise on this part. The current process is manual and done via email. Payroll Operation team request the employee to submit a **VOID Check** via email, then upon reception of that email Payroll manually extracts the banking information from the VOID Check and has to perform data entry operations with that data to setup the direct deposit for the new employee. In this exercise we are going to review how this the data extraction can be automated, and in the following exercise we will see how we can automate the Data Validation and Data Entry for this data using Integration Hub and RPA Hub.
+In this exercise you will gain understanding of ServiceNow's Automation Center offering to help drive the various activities normally managed by Automation CoE (Center of Excelence). You will see how process owners can submit request for automation, and how an Automation CoE team can use **Automation Center** to track, drive, coordinate and reports on all automation activities related to an automation request wether or not the automation is performed on the ServiceNow platform or not.
 
-1. Log in to your instance as **Admin**
+For our particular use case, the Process Owner who owns the **Setup Direct Deposit** process from Payroll has identified some bottlenecks in the process (Using Process Optimization on ServiceNow - Process Mining capability). In this Lab we will see how the Process Owner can submit an Automation Request to the Automation CoE (In an attempt to drive efficiency by automating manual tasks), then we will see how an Automation CoE team can use Automation Center to review, and work on the Automation Request as well as managing and tracking all the activities related to building the automation for that request.
 
-     We are going to Impersonate as **Abel Tuter**, for our use case, **Abel Tuter** is a new hire will submit his VOID Check using a **Record Producer** in ServiceNow. This step will allow you to review the document for which we want to extract information, but also it shows an example of how you can submit document to **Document Intelligence**. 
+## Submitting an Automation Request
 
-    > Document Intelligence can grab documents from attachment on any records. Documents can be submitted to DocIntel via a workflow too.
+In this section of lab you will submit an automation request and review an existing one. we are going to walk you through the screens of Automation Center to help you understand what it does and how it works.
 
-1. Once logged-in to your instance as **Admin**, click on the **Favorites** (1) then click on **Download the VOID Cheque here** (2) :
 
-    ![Relative](images/2022-09-09_09-47-1.png)
+1. Log in to your instance as **Admin** then click on **Favorites** (1) then on **Submit an Automation Request** (2). (You might have to scroll down to see it at the bottom of the list)
 
-1. The download of the of file should start automatically. In your Download folder locate the file name **void cheque Abel Tuer.jpg** and open it so we can review the information we want to extract from it.
+    ![Relative](images/2022-11-02_13-10-58.png)
 
-    This this an example of VOID Check that payroll will use to extract the banking information of the new hire. On the VOID Check there are meaningful information that they usually extract manually:
+    Typically a Process Owner that have identified a need for automation will go here to submit an Automation Request. In our scenario, it could be the Process Owner who owns the 'Setup Direct Deposit' Process. By submitting a request the Process Owner can share detail about the process and the need for automation. The Automation COE would then review the request, vet it, and priorities that request.
 
-    ![Relative](images/2022-09-09_09-51-53.png)
+1. The **Submit an Automation Request** form should look as shown in the picture below. Note that this is an out of the box form that comes with Automation Center.
 
-    | Text Element| Value |
+    ![Relative](images/2022-11-02_13-21-03.png)
+
+   
+1. Fill out the form with those information (We are just showing how to submit the request, it does not matter what you type on that form for the exercice).
+This form is used to gather as much information we can about the process so the Automation team can them estimate effort and/or prioritize the automation tasks accordingly.
+
+    | Field| Value |
    |-------|-------|
-   | 1. Routing Number | 021309379 |
-   | 2. Account Number | 000123456789 |
-   | 3. Account holder | Abel Tuter |
-   | 4. Bank Name | JPMorgan |
+   | 1. Process Name | My fun process name |
+   | 2. Provide a brief description | my process ABC... |
+   | 3. Identify all applications/Systems involved in the process | SAP |
+   | 4. How Many steps are involved in this process | 10 |
+   | 5. Do you perform this process | Yes |
+   | 6. Identify the process owner | System Administrator |
 
-    > Later in the exercise we will review how we have configured and trained **Document Intelligence** to extract those informations.
 
-1. In order to show you how we can submit documents to DocIntel we are going to impersonate as *****Abel Tuter** and submit the VOID Check like an new hire would do. 
+    Notice on the form that the user has the ability to attach any relevant files that would help the Automation team understand the process to automate. It can be process documentation, screenshots, recording of manual steps etc: 
 
-1. Click on the profile picture on the top right corner (1), then click **Impersonate user**:
+     ![Relative](images/2022-11-03_08-35-57.png)
 
-    ![Relative](images/2022-09-09_10-00-29.png)
+1. Once you have filled out the form click **submit** to submit your request to the Automation COE team
 
-1.  In the **Impersonate user** screen, type **Abel Tuter** in search box (1), then click on **Abel Tuter** (2)  and finally click **Impersonate user** (3)
+    ![Relative](images/2022-11-02_13-31-11.png)
 
-    ![Relative](images/2022-09-09_10-03-48.png)
+    Now that we have submitted an Automation Request, It is time to review it as if we were the Automation COE team using Automation Center to track those requests and review them.
 
-1. Once impersonated as **Abel Tuter**, click **Favorites** (1) then click **Setup Direct Deposit** (2)
+## Automation Center Workspace overview
 
+Automation COE teams can prioritize, and manage automation requests from different sources through the full life cycle in Automation Center workspace. In this section of the lab we are going to review an Automation Request and explain the different concepts related to it.
 
-    ![Relative](images/2022-09-09_10-06-14.png)
+1. Like an Automation CoE team would do, we are going to review the automation request from the **Automation Center Workspace**. 
+ 
+    From your instance, Click **All** (1) then type **automation center** (2) then click **Automation Center Home** (3) to open the Automation Center Workspace.
 
-    > This is just a shortcut to open the Recored Producer that we have created for new hires to submit their VOID Check.
-1. Once the **Setup Direct Deposit** record producer is opened, click **Add attachments** (1), select the file **void cheque Abel Tuter.jpg** from your download folder then click **submit** (2)
+    ![Relative](images/2022-11-03_08-57-36.png)
 
-    ![Relative](images/2022-09-09_10-10-23.png)
+    The landing page of Automation Center shows a lot of useful information for the Automation CoE lead to oversee goals, performance, and pipeline. It provides the big picture and helps visualize benchmarks for automation business goals and activity in one place.
 
-1. Notice a banking record was created, record number **BAN0001001**. For our use case this would trigger **Document Intelligence** to process the file that is attached to the record to perform the data extraction.
+1.  Review the Automation Goals - The **Automation Goals** section shows the progress automation goals, What has already been achieved, what is going well, what can be improved. The progress is shown only for the goals that are associated with a request from the current year. Feel free to click the numbers on the goals widgets to view the data and filters:
 
-1. Now we are going to end the impersonation for **Abel Tuter** and inspect what is happening in the back-end and how **Document Intelligence** was configured.
 
-1. Click on **Abel Tuter**'s profile picture (1) then click **End  impersonation** (2)
+    ![Relative](images/2022-11-03_09-55-23.png)
 
-    ![Relative](images/2022-09-09_10-17-48.png)
+1. Scroll down to until you see the Active Automations information, we are going to change the date on the filter to make sure the widgets has demo data to show. Click on (1) **Date:** filter, then on (2) change the value to **Last 3 months** and click **Apply** (3) as showm below:
 
-1. Click **All** (1) then type **ml_solution.list** (2) then press **Enter**:
-    
-    ![Relative](images/2022-09-09_13-36-53.png)
+    ![Relative](images/2022-11-03_10-09-28.png)
 
-    >Note: This is where you can see Document Intelligence sending jobs to our Machine Learning shared infrastructure (Nagini) to process documents (OCR Task, Training the model and retreive the predicted values). We just want to show here what is happening in the back-end. It can be useful for the ServiceNow Admin or Document Intelligence admin to look at this table to see how long it takes to process the Document intelligence tasks. Since Document Intelligence uses a shared Machine Learning infrastructure, it can takes from few seconds to minutes to process depending of the workload on the Nagini cluster.
+    Those widget reports of deployed automations by business, job summaries, cost savings, and time savings.
 
-1. You should see a table and records as shown in the example below. Other ServiceNow products write on that table, for example **Predictive Intelligence**.
+    ![Relative](images/2022-11-03_10-13-48.png)
 
-    ![Relative](images/2022-09-09_10-28-02.png)
+    > Clicking the Cost savings and Time savings widgets opens the Analytics Hub KPI Details widget in a new tab. There is no demo data for it right now.
 
-1. We are going to view what we have configured on the instance in order for Document Intelligence to extract the information we need from that VOID Check. Click on **All** (1) then type **Document intelligence** in the filter navigator (2) and finally click **Task Definititions**:
+1. Scroll down until you see **Robotic Process Automation (RPA) by source** and **Top 10 applications used** as shown:
 
-    ![Relative](images/2022-09-09_10-35-25.png)
+    The first widget (1) report RPA jobs by status in the last 7 days. The RPA solution does not have to be the ServiceNow RPA, Automation COE teams can use Automation Center to collect and reports automation data from other 3rd party Automaiton solutions.
 
-    > The task definition is where you tell to Document Intelligence about a new type of document you need to process.
+    Under **Top 10 Application used** (2),by default the widget reports the top 10 business applications used. We are able to bring the visility into Applications that are used by automation because directly from the **Automation Request** we can link that Automation Request to one or many Business Application(s) (Business Application that are referenced in the CMDB)
 
-1. Click on the **Void check - Task Definition** record to open it:
 
-     ![Relative](images/2022-09-09_10-40-22.png)
+    ![Relative](images/2022-11-03_10-18-46.png)
 
-1. Lets review the **Task Definition** for our use case (Extracting data from VOID checks), that screen **Task Definition** is basically the only configuration screen needed to get started with the product. 
+    Scroll down until you see **Future Automations**:
 
-    >Notice the field **Target table** (1) . this is where we tell Document Intelligence for which table we are going to use the values extracted from the document.
+    This is where the Automation COE team can see their pipeline of automation requests by intake source and request to be deployed.
 
-    >Notice the option **Enable Straight Through Processing** (2), you can enable that option so AI automatically extracts the data for all fields, if the confidence threshold for all fields is above the Straight Through Processing Threshold defined in the task definition. Fields do not need to be reviewed, otherwise you can have an agent that would review the values extracted, after values are reviewed the Machine Learning model associated to that Task Definition is re-trained automatically. DocIntel becomes more confident over time, as it processes more and more documents. 
+    ![Relative](images/2022-11-03_10-28-20.png)
 
-    > Notice the tab **Keys** (3), this is where we have defined the elements we want to extract the document.
 
-    ![Relative](images/2022-09-09_10-46-00.png)
+    Now that we have reviewed the **Automation Center Dashboard**, lets review an Automation Request
 
-1. Under the **Keys** tab, click **Account Holder** (2) to open that **Key**:
+1.  From the Automation Center Workspace, click on the List icon (1), then click **All Automation Request** (2), then locate the Automation request (3)  **ATR0002003 - Setup Direct Deposit** and click on it to open it
 
-    ![Relative](images/2022-09-09_12-12-38.png)
+    ![Relative](images/2022-11-03_10-42-09.png)
 
-    > When you need Document Intelligence to extract certain elements from a document, you create new keys on the Task Definition.
+    This is where an Automation COE team member would go to review an **Automation Request**, manage and track all the activities from the technical requirement gathering, development, testing and execution of the automation.
 
-1. Notice the **Display Name** field (1), this is the name for the new key, then the **Type** field (2), it can be Text or True/Fasle (for check box on forms for example). What you define on the **Target Field** field (3) is the field on which you want to store the value extracted by **Document Intelligence** on a record. **Target Table** (4) is the name of the table that contain the records you need to update with the value extracted (It's also the table that contains the records with the document attached that Document Intelligence will process):
+    As you can see from that screen, the Automation team can review all the detail that was submitted by the Process Owner in the Automation Request:
 
-    ![Relative](images/2022-09-09_12-14-51.png)
+    ![Relative](images/2022-11-03_10-47-50.png)
 
-1. Click the back button on the Key record to return to the **task definition** screen
+    > Notice the **Application used** field it contain the Business Application from the CMDB. This is very useful information for the Automation Team so if they need to identify the application Owner or get information about the systems to automate, it's all in the CMDB!
 
-    ![Relative](images/2022-09-09_12-23-47.png)
+    This give a good overview of the ask from the Process Owner, from that Automation Request, the Automation Team can then start planning the different activities to deliver the automation, click on the **Tasks** tab as shown to review them
 
-1. From the **Task Definition** screen, click on the **Tasks** tab (1).
+    ![Relative](images/2022-11-03_10-52-43.png)
 
-    > Every time you need DocIntel to process a document, you need to create a task. And request to DocIntel to process that task.  The creation of the task (and trigger) can be automated via workflow. we will cover that shortly.
+    You should see a list of 3 tasks, this is where the Automation CoE can orchestrate and manage all the activities required to build the automation. They can create tasks and assign them to differents teams (based on the requirements gathered in the Automation Request) Often time building Automation takes differents skillset such as Integration, RPA, Workflow development, or even the team responsible for the application we need to automate.  It can be many different teams involved in the process. Automation Center help manage that.
 
-    Locate the Task named **Void check - Process task** (2), then notice the value **true** (3) on the **Is Straight Through Processed** column. It means that automatically extracted the data for all fields (without any human intervention). Notice on the column **Source Record** (4). For that task Document Intelligent has processed the attachment from that banking record **BAN0001032** and has populated the fields defined with the keys we have reviewed in the previous step.
+    Click on the Automation Task number **ARSK0001015** to open it:
 
-    Click on the **Void check - Process task** task (2) to open it
+    ![Relative](images/2022-11-03_10-53-42.png)
 
-    ![Relative](images/2022-09-09_12-26-01.png)
+    You can see you can set a priority, Due Date and Assign the task to a Team or a person. Lets Assign this task to the RPA Team so they can start working on building a Robot in RPA to automate that legacy HR/Payroll app!
 
-1. Once the task screen is open, notice the **Extracted Values** (1), those are the values that Document Intelligence has extracted from the VOID Check automatically.
-Click on the **Show In Doctintel** button (2) to open the file in DocIntel:
+    1. We are going to set an Assignment group the a team can start workin on this task
 
-    ![Relative](images/2022-09-09_12-35-30.png)
+    ![Relative](images/2022-11-03_11-00-33.png)
 
+    Locate the **Assignment group** field (1)  Type **RPA Team** (2) to search for the rpa team on the list, then select the value **RPA Team** from the list (3) and click **Save** (4):
 
-1. Agents usually open a document in Document Intelligence to review and validate the extracted value or to map extracted values to the keys (to train the model). The first time you submit a task associated to a new **Task Definition**, DocIntel won't know which values go to which key. The Machine Learning model needs to be trained. We do this by clicking on the key field (1) and selecting the correct value. The sytem indicates on the screen from where the value is coming from in the document (2). 
+    ![Relative](images/2022-11-03_11-03-03.png)
 
-    ![Relative](images/2022-09-09_12-39-30.png)
+    The RPA Team now will see that they have a new task assigned to them and can start working on it. 
 
-    Notice the percentage number (73%) next to **Abel Tuter** under the **Account Holder** field (1). This is the confidence score for the prediction. The confidence score increases as you train the model with more document (usually 4 to 5 documents is enough to reach high number).  On the Task definition you can configure the **Straight Through processing threshold**. this correspond to the predicition confidence score value for which you want to extract the values and map them to the fields without a manual review from an agent.
+    Close that tab by clicking on the x next to **Create RPA Robot** as shown: 
 
-    Click the **Submit** button.  By clicking the submit button the model is trained with those new inputs. In this Lab environment we do not have access to our Machine Learning component it won't do anything. You can now close that Tab.
+    ![Relative](images/2022-11-03_11-07-49.png)
 
-1. Remember, we have submitted a VOID Check as **Abel Tuter**, you might wonder how the Bank Record with the attachment was picked up automatically by DocIntel. Let's review what was configured to do this. 
+    As an Automation CoE, you can mark that Automation Request as **In Progress** so the Process Owner who submitted the request knows that the team is working on it (Notification can be configured on the platform). Click on the **Move to In progress** button as shown below: 
 
-1. Return to the Task Definition that was created for that use case. Click on **All** (1) then type **Document intelligence** in the filter navigator (2) and finally click **Task Definititions**:
+    ![Relative](images/2022-11-03_11-10-02.png)
 
-    ![Relative](images/2022-09-09_10-35-25.png)
 
-1. Click on the **Void check - Task Definition** record to open it:
-
-     ![Relative](images/2022-09-09_10-40-22.png)
-
-1. Once the **Task definition** is opened, Click on the **Integration Setups** Tab and open the record **Void check - Process task** (1) 
-    > This is where you go to configure DocIntel to Process tasks automatically when records are created or updated with attachment on the defined **Target Table**.
-    The first record **Void Check - Process task** (1), is where we have configured DocIntel to process a task based on our own condition (It uses a workflow). the second record **void check- extract values** is where we enable the workflow that is going to take the extracted values and assign them to the target fields that we have mapped when we have defined the **Keys**. Both of those workflows are created automatically by DocIntel but you can create your own if you need to perform additional steps.
-
-
-
-    ![Relative](images/2022-09-09_12-58-50.png)
-
-1. Under  **Conditions** (1) This is where you configure the conditions for DocIntel to process specific records (pick up an attachment from specific records that match that condition). 
-
-    Notice the option **Create flow** (2). If selected, DocIntel will automatically create the flows that will be used to create the DocIntel tasks and Process them.
-
-    **Trigger** (3) and **Flow Conditions** (4) are automatically created, this what you will see if you open the specifc Flow in Flow Designer, it correspond the the Flow trigger and flow condition in flow designer. 
-
-    ![Relative](images/2022-09-09_13-07-55.png)
-
-
-1. We have reviewed all the configurations that was done for that particular use case.  Lets review the outcome of that automated data extraction from DocIntel.
-
-    Click on **Favorites** (1) then **bank account table** (2)
-
-    ![Relative](images/2022-09-09_13-15-45.png)
-
-    When we origininally submitted the VOID Check as **Abel Tuter** a bank record was automatically created. Then based on the configuration of DocIntel, a DocIntel task was created automatically to process the attachment (VOID Check), extract the data then update the field Account Number, Bank Name, Routing Number, Account Holder.  In this Lab environment we cannot process documents since we do not have access to our shared ML Infrastructure from those instances but we are showing on this screen below the end result with data we have preloaded on the lab instance so you can see what it would look like in real life...
-
-    ![Relative](images/2022-09-09_13-20-03.png)
-
-    > This is a lab exercise, in real life we would not show any sensitive information like those banking information. We have created a custom table just for that exercise and securing the data is not the focus of that lab. We have different encryptions capabilities on the platform if we wanted to secure that data :-) 
-
-In the following  exercice (IntegrationHub we see how to build a spoke to integrate ServiceNow to an external API that will use those extracted information from DocIntel.
 
 ## Conclusion
 
-In this **Document Intelligence** lab, we have covered how Document Intelligence can be configured to extract information from structured or semi-structed documents. We have seen how you can use those extracted values from within a workflow. In the following exercice, we are covering how to build a flow and integration using IntegrationHub to perform data validation (with the data extracted via DocIntel). You will learn how to build a spoke to integrate ServiceNow to an external system via API. 
+In this **Automation Center** lab, we have seen how an Automation CoEs can use Automation Center to govern their end-to-end multi-vendor automation life cycles from one place. We have seen how the automation request can be funnel from (Service Catalog Request), reviewed and vetted from the Automation Center workspace. Also with the Automation Center dashboard, we have seen how Automation CoEs ca can view real-time metrics and analytics for their Automation activities indenpendtly of the automation tools used for their projects.
+
