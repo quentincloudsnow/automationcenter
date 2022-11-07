@@ -432,11 +432,13 @@ This form is used to gather as much information we can about the process so the 
 
 <p><img src="images/2022-11-03_10-09-28.png" alt="Relative"></p>
 
-<p>Those widget reports of deployed automations by business, job summaries, cost savings, and time savings.</p>
+<p>Those widgets report of deployed automations by business, job summaries, cost savings, and time savings.</p>
 
 <p><img src="images/2022-11-03_10-13-48.png" alt="Relative"></p>
 
 <blockquote>
+<p>The Cost Saving and Time Savings are not showing any data because we do not have the right Demo Data on those lab instances right now.</p>
+
 <p>Clicking the Cost savings and Time savings widgets opens the Analytics Hub KPI Details widget in a new tab. There is no demo data for it right now.</p>
 </blockquote></li>
 <li><p>Scroll down until you see <strong>Robotic Process Automation (RPA) by source</strong> and <strong>Top 10 applications used</strong> as shown:</p>
@@ -452,6 +454,32 @@ This form is used to gather as much information we can about the process so the 
 <p>This is where the Automation COE team can see their pipeline of automation requests by intake source and request to be deployed.</p>
 
 <p><img src="images/2022-11-03_10-28-20.png" alt="Relative"></p>
+
+<p>Automation Center is also able to collect and report on Automation Execution, from ServiceNow&#39;s RPA solution but we also provide a framework and datamodel to allow customer to collect data from 3rd Party Automation solution To fetch execution data from 3rd party solution this would involve mostly buidling a flow in Flow Designer to collect data from an API in order to populate the sn<em>ac</em>automation_execution table.</p>
+
+<p>At the top of the Automation Center pager locate the and click the <strong>Executions</strong> Tab as shown: </p>
+
+<p><img src="images/2022-11-07_09-22-28.png" alt="Relative"></p>
+
+<p>The first for widgets provide visibility into Executions Jobs, Automation Incident, Automation Changes and Business Application Changes, this are very valuable information for when organization run Automation at scale, we are able to provide this level of detail because ServiceNow Incident, Problem, Change (ITSM) run on the same platform has one single datamodel</p>
+
+<p><img src="images/2022-11-07_09-37-34.png" alt="Relative"></p>
+
+<p>Click in the blue portion of the Circle Chart on the Job summary widget as shown to open the view that shows the running executions: </p>
+
+<p><img src="images/2022-11-07_09-36-19.png" alt="Relative"></p>
+
+<p>Notice the source column, Automation Center shows the running Automation executions from 3rd party RPA solution:</p>
+
+<p><img src="images/2022-11-07_09-41-43.png" alt="Relative"></p>
+
+<blockquote>
+<p>The date displayed on the view comes from the sn<em>ac</em>automation_execution table on the platform, metadata from 3rd party automation tool are stored in that table</p>
+</blockquote>
+
+<p>After looking at the <strong>Job Summaryy</strong> view, you can now close that tab as shown below:</p>
+
+<p><img src="images/2022-11-07_09-41-43.png" alt="Relative"></p>
 
 <p>Now that we have reviewed the <strong>Automation Center Dashboard</strong>, lets review an Automation Request</p></li>
 <li><p>From the Automation Center Workspace, click on the List icon (1), then click <strong>All Automation Request</strong> (2), then locate the Automation request (3)  <strong>ATR0002003 - Setup Direct Deposit</strong> and click on it to open it</p>
