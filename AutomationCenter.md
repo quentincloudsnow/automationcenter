@@ -100,7 +100,7 @@ Automation COE teams can prioritize, and manage automation requests from differe
 
     ![Relative](images/2022-11-03_10-28-20.png)
 
-    Automation Center is also able to collect and report on Automation Execution, from ServiceNow's RPA solution but we also provide a framework and datamodel to allow customer to collect data from 3rd Party Automation solution To fetch execution data from 3rd party solution this would involve mostly buidling a flow in Flow Designer to collect data from an API in order to populate the sn_ac_automation_execution table.
+    Automation Center is also able to collect and report on Automation Execution, from ServiceNow's RPA solution but we also provide a framework and datamodel to allow customer to collect data from 3rd Party Automation solution To fetch execution data from 3rd party solution this would involve mostly buidling a flow in Flow Designer to collect data from an API in order to populate the sn\_ac\_automation\_execution table.
 
     At the top of the Automation Center pager locate the and click the **Executions** Tab as shown: 
 
@@ -118,7 +118,7 @@ Automation COE teams can prioritize, and manage automation requests from differe
 
    ![Relative](images/2022-11-07_09-41-43.png)
 
-   > The date displayed on the view comes from the "sn__ac__automation_execution" table on the platform, metadata from 3rd party automation tool are stored in that table
+   > The date displayed on the view comes from the sn\_ac\_automation\_execution table on the platform, metadata from 3rd party automation tool are stored in that table
 
    After looking at the **Job Summaryy** view, you can now close that tab as shown below:
 
