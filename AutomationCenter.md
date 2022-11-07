@@ -77,9 +77,11 @@ Automation COE teams can prioritize, and manage automation requests from differe
 
     ![Relative](images/2022-11-03_10-09-28.png)
 
-    Those widget reports of deployed automations by business, job summaries, cost savings, and time savings.
+    Those widgets report of deployed automations by business, job summaries, cost savings, and time savings.
 
     ![Relative](images/2022-11-03_10-13-48.png)
+
+    > The Cost Saving and Time Savings are not showing any data because we do not have the right Demo Data on those lab instances right now.
 
     > Clicking the Cost savings and Time savings widgets opens the Analytics Hub KPI Details widget in a new tab. There is no demo data for it right now.
 
@@ -98,6 +100,29 @@ Automation COE teams can prioritize, and manage automation requests from differe
 
     ![Relative](images/2022-11-03_10-28-20.png)
 
+    Automation Center is also able to collect and report on Automation Execution, from ServiceNow's RPA solution but we also provide a framework and datamodel to allow customer to collect data from 3rd Party Automation solution To fetch execution data from 3rd party solution this would involve mostly buidling a flow in Flow Designer to collect data from an API in order to populate the sn_ac_automation_execution table.
+
+    At the top of the Automation Center pager locate the and click the **Executions** Tab as shown: 
+
+    ![Relative](images/2022-11-07_09-22-28.png)
+
+    The first for widgets provide visibility into Executions Jobs, Automation Incident, Automation Changes and Business Application Changes, this are very valuable information for when organization run Automation at scale, we are able to provide this level of detail because ServiceNow Incident, Problem, Change (ITSM) run on the same platform has one single datamodel
+
+    ![Relative](images/2022-11-07_09-37-34.png)
+
+    Click in the blue portion of the Circle Chart on the Job summary widget as shown to open the view that shows the running executions: 
+
+   ![Relative]( images/2022-11-07_09-36-19.png)
+
+    Notice the source column, Automation Center shows the running Automation executions from 3rd party RPA solution:
+
+   ![Relative](images/2022-11-07_09-41-43.png)
+
+   > The date displayed on the view comes from the sn_ac_automation_execution table on the platform, metadata from 3rd party automation tool are stored in that table
+
+   After looking at the **Job Summaryy** view, you can now close that tab as shown below:
+
+    ![Relative](images/2022-11-07_09-41-43.png)
 
     Now that we have reviewed the **Automation Center Dashboard**, lets review an Automation Request
 
