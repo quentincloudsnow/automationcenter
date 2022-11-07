@@ -120,9 +120,9 @@ Automation COE teams can prioritize, and manage automation requests from differe
 
    > The date displayed on the view comes from the sn\_ac\_automation\_execution table on the platform, metadata from 3rd party automation tool are stored in that table
 
-   After looking at the **Job Summaryy** view, you can now close that tab as shown below:
+   After looking at the **Job Summary** view, you can now close that tab as shown below:
 
-    ![Relative](images/2022-11-07_09-41-43.png)
+    ![Relative](images/2022-11-07_09-47-30.png)
 
     Now that we have reviewed the **Automation Center Dashboard**, lets review an Automation Request
 
