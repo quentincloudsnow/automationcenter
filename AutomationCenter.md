@@ -13,7 +13,7 @@ Key features:
 
 ## Goal
 
-In this exercise you will gain understanding of ServiceNow's Automation Center offering to help drive the various activities normally managed by Automation CoE (Center of Excelence). You will see how process owners can submit request for automation, and how an Automation CoE team can use **Automation Center** to track, drive, coordinate and reports on all automation activities related to an automation request wether or not the automation is performed on the ServiceNow platform or not.
+In this exercise you will gain understanding of ServiceNow's Automation Center offering to help drive the various activities normally managed by Automation CoE (Center of Excellence). You will see how process owners can submit request for automation, and how an Automation CoE team can use **Automation Center** to track, drive, coordinate and reports on all automation activities related to an automation request wether or not the automation is performed on the ServiceNow platform or not.
 
 For our particular use case, the Process Owner who owns the **Setup Direct Deposit** process from Payroll has identified some bottlenecks in the process (Using Process Optimization on ServiceNow - Process Mining capability). In this Lab we will see how the Process Owner can submit an Automation Request to the Automation CoE (In an attempt to drive efficiency by automating manual tasks), then we will see how an Automation CoE team can use Automation Center to review, and work on the Automation Request as well as managing and tracking all the activities related to building the automation for that request.
 
@@ -26,14 +26,14 @@ In this section of lab you will submit an automation request and review an exist
 
     ![Relative](images/2022-11-02_13-10-58.png)
 
-    Typically a Process Owner that have identified a need for automation will go here to submit an Automation Request. In our scenario, it could be the Process Owner who owns the 'Setup Direct Deposit' Process. By submitting a request the Process Owner can share detail about the process and the need for automation. The Automation COE would then review the request, vet it, and priorities that request.
+    Typically a Process Owner that has identified a need for automation will go here to submit an Automation Request. In our scenario, it could be the Process Owner who owns the 'Setup Direct Deposit' Process. By submitting a request the Process Owner can share detail about the process and the need for automation. The Automation COE would then review the request, vet it, and priorities that request.
 
 1. The **Submit an Automation Request** form should look as shown in the picture below. Note that this is an out of the box form that comes with Automation Center.
 
     ![Relative](images/2022-11-02_13-21-03.png)
 
    
-1. Fill out the form with those information (We are just showing how to submit the request, it does not matter what you type on that form for the exercice).
+1. Fill out the form with those information (We are just showing how to submit the request, it does not matter what you type on that form for the exercise).
 This form is used to gather as much information we can about the process so the Automation team can them estimate effort and/or prioritize the automation tasks accordingly.
 
     | Field| Value |
@@ -73,11 +73,12 @@ Automation COE teams can prioritize, and manage automation requests from differe
 
     ![Relative](images/2022-11-03_09-55-23.png)
 
-1. Scroll down to until you see the Active Automations information, we are going to change the date on the filter to make sure the widgets has demo data to show. Click on (1) **Date:** filter, then on (2) change the value to **Last 3 months** and click **Apply** (3) as showm below:
+1. Scroll down to until you see the Active Automations information, we are going to change the date on the filter to make sure the widgets has demo data to show. Click on (1) **Date:** filter, then on (2) change the value to **Last year** (or some other value depending on when you do this lab) and click **Apply** (3) as shown below:
 
     ![Relative](images/2022-11-03_10-09-28.png)
 
     Those widgets report of deployed automations by business, job summaries, cost savings, and time savings.
+    
 
     ![Relative](images/2022-11-03_10-13-48.png)
 
@@ -87,9 +88,9 @@ Automation COE teams can prioritize, and manage automation requests from differe
 
 1. Scroll down until you see **Robotic Process Automation (RPA) by source** and **Top 10 applications used** as shown:
 
-    The first widget (1) report RPA jobs by status in the last 7 days. The RPA solution does not have to be the ServiceNow RPA, Automation COE teams can use Automation Center to collect and reports automation data from other 3rd party Automaiton solutions.
+    The first widget (1) report RPA jobs by status in the last 7 days. The RPA solution does not have to be the ServiceNow RPA, Automation COE teams can use Automation Center to collect and reports automation data from other 3rd party Automation solutions.
 
-    Under **Top 10 Application used** (2),by default the widget reports the top 10 business applications used. We are able to bring the visility into Applications that are used by automation because directly from the **Automation Request** we can link that Automation Request to one or many Business Application(s) (Business Application that are referenced in the CMDB)
+    Under **Top 10 Application used** (2),by default the widget reports the top 10 business applications used. We are able to bring the visibility into Applications that are used by automation because directly from the **Automation Request** we can link that Automation Request to one or many Business Application(s) (Business Application that are referenced in the CMDB)
 
 
     ![Relative](images/2022-11-03_10-18-46.png)
@@ -100,13 +101,13 @@ Automation COE teams can prioritize, and manage automation requests from differe
 
     ![Relative](images/2022-11-03_10-28-20.png)
 
-    Automation Center is also able to collect and report on Automation Execution, from ServiceNow's RPA solution but we also provide a framework and datamodel to allow customer to collect data from 3rd Party Automation solution To fetch execution data from 3rd party solution this would involve mostly buidling a flow in Flow Designer to collect data from an API in order to populate the sn\_ac\_automation\_execution table.
+    Automation Center is also able to collect and report on Automation Execution, from ServiceNow's RPA solution but we also provide a framework and datamodel to allow customer to collect data from 3rd Party Automation solution To fetch execution data from 3rd party solution this would involve mostly building a flow in Flow Designer to collect data from an API in order to populate the sn\_ac\_automation\_execution table.
 
     At the top of the Automation Center pager locate the and click the **Executions** Tab as shown: 
 
     ![Relative](images/2022-11-07_09-22-28.png)
 
-    The first for widgets provide visibility into Executions Jobs, Automation Incident, Automation Changes and Business Application Changes, this are very valuable information for when organization run Automation at scale, we are able to provide this level of detail because ServiceNow Incident, Problem, Change (ITSM) run on the same platform has one single datamodel
+    The first four widgets provide visibility into Execution Jobs, Automation Incidents, Automation Changes and Business Application Changes. This is very valuable information for organizations that run automation at scale. We are able to provide this level of detail because ServiceNow Incident, Problem, Change (ITSM) run on the same platform with a single data model.
 
     ![Relative](images/2022-11-07_09-37-34.png)
 
@@ -124,9 +125,9 @@ Automation COE teams can prioritize, and manage automation requests from differe
 
     ![Relative](images/2022-11-07_09-47-30.png)
 
-    Now that we have reviewed the **Automation Center Dashboard**, lets review an Automation Request
+    Now that we have reviewed the **Automation Center Dashboard**, let's review an Automation Request
 
-1.  From the Automation Center Workspace, click on the List icon (1), then click **All Automation Request** (2), then locate the Automation request (3)  **ATR0002003 - Setup Direct Deposit** and click on it to open it
+1.  From the Automation Center Workspace, click on the List icon (1), then click **All Automation Request** (2), then locate the Automation request (3)  **ATR0001002 - Setup Direct Deposit** and click on it to open it
 
     ![Relative](images/2022-11-03_10-42-09.png)
 
@@ -142,15 +143,15 @@ Automation COE teams can prioritize, and manage automation requests from differe
 
     ![Relative](images/2022-11-03_10-52-43.png)
 
-    You should see a list of 3 tasks, this is where the Automation CoE can orchestrate and manage all the activities required to build the automation. They can create tasks and assign them to differents teams (based on the requirements gathered in the Automation Request) Often time building Automation takes differents skillset such as Integration, RPA, Workflow development, or even the team responsible for the application we need to automate.  It can be many different teams involved in the process. Automation Center help manage that.
+    You should see a list of 3 tasks, this is where the Automation CoE can orchestrate and manage all the activities required to build the automation. They can create tasks and assign them to different teams (based on the requirements gathered in the Automation Request). Often times, building Automation takes different skillsets such as Integration, RPA, Workflow development, or even the team responsible for the application we need to automate.  It can be many different teams involved in the process. Automation Center help manage that.
 
     Click on the Automation Task number **ARSK0001015** to open it:
 
     ![Relative](images/2022-11-03_10-53-42.png)
 
-    You can see you can set a priority, Due Date and Assign the task to a Team or a person. Lets Assign this task to the RPA Team so they can start working on building a Robot in RPA to automate that legacy HR/Payroll app!
+    You can see you can set a priority, Due Date and Assign the task to a Team or a person. Let's Assign this task to the RPA Team so they can start working on building a Robot in RPA to automate that legacy HR/Payroll app!
 
-    1. We are going to set an Assignment group the a team can start workin on this task
+    1. We are going to set an Assignment group the a team can start working on this task
 
     ![Relative](images/2022-11-03_11-00-33.png)
 
@@ -172,5 +173,5 @@ Automation COE teams can prioritize, and manage automation requests from differe
 
 ## Conclusion
 
-In this **Automation Center** lab, we have seen how an Automation CoEs can use Automation Center to govern their end-to-end multi-vendor automation life cycles from one place. We have seen how the automation request can be funnel from (Service Catalog Request), reviewed and vetted from the Automation Center workspace. Also with the Automation Center dashboard, we have seen how Automation CoEs ca can view real-time metrics and analytics for their Automation activities indenpendtly of the automation tools used for their projects.
+In this **Automation Center** lab, we have seen how an Automation CoEs can use Automation Center to govern their end-to-end multi-vendor automation life cycles from one place. We have seen how the automation request can be funnel from (Service Catalog Request), reviewed and vetted from the Automation Center workspace. Also with the Automation Center dashboard, we have seen how Automation CoEs can view real-time metrics and analytics for their Automation activities independently of the automation tools used for their projects.
 
